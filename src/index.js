@@ -23,7 +23,7 @@ class App extends React.Component{
         }
 
         const column = this.state.columns[source.droppableId]
-        const newSubjectIds = Array.from(column.id)
+        const newSubjectIds = Array.from(column.subjectIds)
         newSubjectIds.splice(source.index, 1)
         newSubjectIds.splice(destination.index, 0, draggableId)
 
@@ -39,7 +39,6 @@ class App extends React.Component{
                 [newColumn.id]: newColumn,
             },
         }
-        console.log(newState)
         this.setState(newState)
     }
     
@@ -50,7 +49,6 @@ class App extends React.Component{
                 {this.state.columnOrder.map(columnId => {
                     const column = this.state.columns[columnId]
                     const subjects = column.subjectIds.map(subjectId => this.state.subjects[subjectId])
-
                     return <Column key={column.id} column={column} subjects={subjects} />
                 })}
             </DragDropContext>

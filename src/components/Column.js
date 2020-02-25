@@ -26,8 +26,9 @@ export default class Column extends Component {
                             ref={provider.innerRef}
                             {...provider.droppableProps}
                         >
-                            {this.props.subjects.map((subject, index) =>(
-                                <Subject key={subject.id} subject={subject} index={index} />))}
+                            {this.props.subjects.map((subject, index) => <Subject key={subject.id} subject={subject} index={index} />
+                                )
+                            }
                             {provider.placeholder}
                         </SubjectList>
                     )}
